@@ -1,0 +1,7 @@
+<view>
+  <button size="default" type="primary" onTap="goTask">入会任务去完成</button>
+    <button size="default" type="primary" onTap="goFollowTask">关注任务去完成</button>
+     <button size="default" type="primary" onTap="goShopTask">到店任务去完成</button>
+  <button size="default" type="primary" onTap="onDrawResult">抽奖结果</button>
+  <draw-result show="{{drawResult}}" onModalClose="onModalClose" onModalClick="onModalClick" onBannerClick="onBannerClick"  drawSeller="{{drawSeller}}" drawResultCfg="{{drawResultCfg}}" drawSeller="{{drawSeller}}" ></draw-result>
+</view>

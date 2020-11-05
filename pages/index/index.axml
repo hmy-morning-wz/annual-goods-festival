@@ -1,0 +1,107 @@
+<import-sjs name="helper" from="./helper.sjs"/>
+<view class="index-wrapper {{rule || recordState?'prohibitMove':''}}" style="background-color: {{bgColor || '#FF6F77'}}">
+  <view style="padding-top: 755rpx;"></view>
+  <lucky-bag backClass='{{backClass}}' onOpenBag="onOpenBag" onOpenRecord="hanldeRecord"  ref="saveBagRef" ></lucky-bag>
+  <view class="rules" data-seed="规则按钮" data-group="活动规则" onTap="onRulePopup">
+    活动规则
+  </view>
+  <view class="miaosha" a:if="{{(showArea1 != 'no')&&(flashSaleList.length>0)}}">
+    <view class="zhuanquTit">
+      {{areaName1}}
+    </view>
+    <view class="miaoshaList">
+      <block a:for="{{flashSaleList}}">
+        <view class="eachFlash" onTap="handleH5Jump" onAppear="onAppear" data-seed="{{item.goodsName}}" data-group="{{areaName1}}" data-index="{{index}}" data-obj="{{item}}" data-link="{{item.goodsLink}}">
+          <view style="padding: 0 14rpx;">
+            <view class="goodsPic">
+              <image mode="scaleToFill" src="{{ helper.crossImage(item.image)}}"/>
+            </view>
+            <view class="stateTxt">
+              <view a:if="{{item.state == 1}}">秒杀未开始</view>
+              <view a:if="{{item.state == 2}}">距秒杀结束</view>
+              <view a:if="{{item.state == 3}}">秒杀结束</view>
+            </view>
+            <view class="progressBar" style="{{item.percent <= 0.15 ? `background-image: linear-gradient(to right, #FF6D83 ${item.percent*100}%, #FFB5C0 ${item.percent*100}%);` : ''}}">
+              <view a:if="{{item.percent > 0.15}}" style="width:{{149*(item.percent)}}rpx;height:24rpx;background: #FF6D83;border-radius:20rpx;">
+              </view>
+            </view>
+          </view>
+          <view class="grayLine"></view>
+          <view style="padding: 0 14rpx;">
+            <view class="goodsName">
+              {{item.goodsName}}
+            </view>
+            <view class="adTxt">
+              {{item.adTxt}}
+            </view>
+            <view class="bottom">
+              <view>￥{{item.price}}</view>
+              <view class="goBtn">
+                <text>抢</text>
+                <image mode="scaleToFill" src="https://images.allcitygo.com/2019121615251052291PeSU.png?x-oss-process=image/format,webp"/>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="bimai" a:if="{{(showArea2 != 'no')&&(mustBuyList.length>0)}}">
+    <view class="zhuanquTit">
+      {{areaName2}}
+    </view>
+    <view class="bimaiList">
+      <block a:for="{{mustBuyList}}">
+        <view class="eachItem" onTap="handleH5Jump" onAppear="onAppear" data-link="{{item.link}}" data-seed="{{item.goodsName}}" data-group="{{areaName2}}" data-index="{{index}}" data-obj="{{item}}">
+          <view class="itemImage">
+            <image mode="scaleToFill" src="{{helper.crossImage(item.image)}}"/>
+          </view>
+          <view class="itemName">
+            {{item.goodsName}}
+          </view>
+          <view class="botPrice">
+            <view class="salePrice">
+              ￥{{item.salePrice}}
+            </view>
+            <view class="originPrice">
+              ￥{{item.originPrice}}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="pinpai" a:if="{{(showArea3 != 'no')&&(brandAreaList.length>0)}}">
+    <view class="zhuanquTit">
+      {{areaName3}}
+    </view>
+    <view class="pinpaiList">
+      <block a:for="{{brandAreaList}}" a:for-index="idx" a:for-item="item">
+        <view class="eachPinpai">
+          <view class="brandPic" onTap="handleH5Jump" onAppear="onAppear" data-seed="{{item.brandName}}" data-group="{{areaName3+'-品牌头图'}}" data-index="{{idx}}" data-obj="{{item}}" data-link="{{item.brandLink}}">
+            <image mode="scaleToFill" src="{{ helper.crossImage(item.brandPic)}}"/>
+          </view>
+          <block a:if="{{index
+            <2}}" a:for="{{item.goodsList}}" a:for-index="index" a:for-item="goods">
+            <view class="verticalLine"></view>
+            <view class="brandGoods" onTap="handleH5Jump" onAppear="onAppear" data-seed="{{goods.goodsName+'-'+item.brandName}}" data-group="{{areaName3+'-品牌商品'}}" data-index="{{index}}" data-obj="{{goods}}" data-link="{{goods.goodsLink}}">
+              <view class="goodsName">{{goods.goodsName}}</view>
+              <view class="adTxt">{{goods.adTxt}}</view>
+              <view class="goodImage">
+                <image mode="scaleToFill" src="{{helper.crossImage(goods.icon_img)}}"/>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="footMarker">
+    {{footMarker}}
+  </view>
+  <draw-result show="{{drawResult}}" onModalClose="onModalClose" onModalClick="onModalClick" onBannerClick="onBannerClick" drawSeller="{{drawSeller}}" drawResultCfg="{{drawResultCfg}}" drawSeller="{{drawSeller}}"></draw-result>
+  <popup-rule show="{{rule}}" onModalClose="onRuleClose"></popup-rule>
+  <view class="topLayer" onTap="goTop" onAppear="onAppear" data-seed="回到顶部" data-group="锚点">
+    <image mode="scaleToFill" src="https://images.allcitygo.com/20191217185444399nofkp8.png?x-oss-process=image/format,webp"/>
+  </view>
+</view>

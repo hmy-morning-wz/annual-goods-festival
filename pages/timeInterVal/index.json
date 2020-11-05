@@ -1,0 +1,12 @@
+{
+  "defaultTitle":"绿色出行日",
+  "transparentTitle":"auto",
+  "titlePenetrate": "YES",
+  "barButtonTheme": "light",
+  "backgroundColor": "#FFFFFF",
+  "titleBarColor": "#c1eefb",
+  "usingComponents": {       
+  
+  }
+  
+}

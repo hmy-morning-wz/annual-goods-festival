@@ -1,0 +1,80 @@
+<view class="lucky-bag-container" a:if="{{backClass && backClass.length>0}}">
+  <view class="record" onTap="hanldeRecord" data-seed="中奖记录">*中奖记录*</view>
+  <view a:if="{{backClass.length<= 1}}">
+    <block a:for="{{backClass}}" wx:key="index">
+      <view class='li'>
+        <view class='li1 selected' >
+          <image class="logo" mode="scaleToFill" src="{{item.icon_img}}"/>
+          <view class="content" a:if="{{item.name}}">{{item.name}}</view>
+          <view class="chai" data-seed="{{item.name}}" data-index="{{index}}" data-group="红包模块" data-currentTaskId="{{index}}" onTap="handleOpen" a:if="{{item.openStatus != 2}}">拆</view>
+          <view class="chai"  a:else>已拆</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view a:else>
+    <swiper class="swiper" next-margin="106rpx" current-item-id="{{currentItemId}}" previous-margin="106rpx" onChange="swiperChange" current="1">
+      <block a:for="{{backClass}}" key="index">
+        <swiper-item item-id="{{index}}" data-item-id="{{index}}">
+          <view class='li'>
+            <view class='li1 {{currentItemId == index ? "selected" : ""}}' >
+              <image class="logo" mode="scaleToFill" src="{{item.icon_img}}"/>
+              <view class="content" a:if="{{item.name}}">{{item.name}}</view>
+              <view class="chai" data-seed="{{item.name}}" data-index="{{index}}" data-group="红包模块" onTap="handleOpen" a:if="{{item.openStatus != 2}}" data-currentTaskId="{{index}}" >拆</view>
+              <view class="chai"  a:else>已拆</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="bg" a:if="{{taskState}}">
+    <view class="lucky-bag-bottom">
+      <view class="header">
+        <view class="title">完成以下任务，开红包</view>
+        <image onTap="handleClose" class="close" mode="scaleToFill" src="/images/index/close.png"/>
+      </view>
+      <view class="bottom-content line">
+        <view class="bottom-detail">
+          <image a:if="{{taskList.taskOne.taskType === 'member'}}" class="shop" mode="scaleToFill" src="/images/index/icon-ruhui.png"/>
+          <image a:elif="{{taskList.taskOne.taskType === 'follow'}}" class="shop" mode="scaleToFill" src="/images/index/icon-liulan.png"/>
+          <image a:elif="{{taskList.taskOne.taskType === 'goshop'}}" class="shop" mode="scaleToFill" src="/images/index/star.png"/>
+          <view a:if="{{taskList.taskOne.taskType === 'member'}}">完成店铺入会</view>
+          <view a:elif="{{taskList.taskOne.taskType === 'follow'}}">关注店铺</view>
+          <view a:elif="{{taskList.taskOne.taskType === 'goshop'}}">浏览店铺</view>
+          <image a:if="{{taskList.taskOne.taskState}}" class="button" mode="scaleToFill" src="/images/index/icon-button.png"/>
+          <image a:else data-taskId="1" data-group="红包模块"  data-seed="{{taskList.sellerId}}-{{taskList.taskOne.taskType}}" onTap="handleTask" class="button" mode="scaleToFill" src="/images/index/button2.png"/>
+        </view>
+      </view>
+      <view class="bottom-content">
+        <view class="bottom-detail">
+          <image a:if="{{taskList.taskTwo.taskType === 'member'}}" class="shop" mode="scaleToFill" src="/images/index/icon-ruhui.png"/>
+          <image a:elif="{{taskList.taskTwo.taskType === 'follow'}}" class="shop" mode="scaleToFill" src="/images/index/icon-liulan.png"/>
+          <image a:elif="{{taskList.taskTwo.taskType === 'goshop'}}" class="shop" mode="scaleToFill" src="/images/index/star.png"/>
+          <view a:if="{{taskList.taskTwo.taskType === 'member'}}">完成店铺入会</view>
+          <view a:elif="{{taskList.taskTwo.taskType === 'follow'}}">关注店铺</view>
+          <view a:elif="{{taskList.taskTwo.taskType === 'goshop'}}">浏览店铺</view>
+          <image a:if="{{taskList.taskTwo.taskState}}"  class="button" mode="scaleToFill" src="/images/index/icon-button.png"/>
+          <image a:else data-group="红包模块"  data-seed="{{taskList.sellerId}}-{{taskList.taskTwo.taskType}}" data-taskId="2" onTap="handleTask" class="button" mode="scaleToFill" src="/images/index/button2.png"/>
+        </view>
+      </view>
+      <!--<view class="bottom-content"><view class="bottom-detail"><image class="shop" mode="scaleToFill" src="/images/index/star.png"/><view>关注店铺</view><image a:if="{{taskList.taskTwo.taskState}}" onTap="handleTask" class="button" mode="scaleToFill" src="/images/index/icon-button.png"/><image a:else data-taskId="2" onTap="handleTask" class="button" mode="scaleToFill" src="/images/index/button2.png"/></view></view> -->
+    </view>
+  </view>
+  <view class="bg" a:if="{{recordState}}">
+    <view class="prize-record">
+      <view class="record-content mt172" a:if="{{recordList.length>0}}">
+        <view class="record-line" a:for="{{recordList}}">
+          <view class="record-left">{{item.sellerName}}</view>
+          <view class="record-middle">{{item.voucherName}}</view>
+          <view class="record-right">{{item.completeTime}}</view>
+        </view>
+      </view>
+      <view a:else>
+          <image  class="no-data" mode="scaleToFill" src="/images/index/no-data.png"/>
+          <view class="no-data-content">暂无记录</view>
+      </view>
+    </view>
+    <image onTap="handleClose" class="record-close" mode="scaleToFill" src="/images/index/close.png"/>
+  </view>
+</view>

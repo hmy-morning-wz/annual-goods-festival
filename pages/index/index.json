@@ -1,0 +1,15 @@
+{
+  "defaultTitle":"",
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "navigationBarTextStyle": "white",
+  "barButtonTheme": "light",
+  "backgroundColor": "#F5F5F5",
+  "titleBarColor": "#c1eefb",
+  "usingComponents": {       
+    "draw-result": "/components/draw-result/draw-result",
+    "lucky-bag": "/components/lucky-bag/index",
+    "popup-rule": "/components/popup-rule/popup-rule"
+  }
+  
+}

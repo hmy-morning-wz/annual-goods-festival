@@ -1,0 +1,253 @@
+
+.lucky-bag-container{
+  position: relative;
+  /* height: 418rpx; */
+}
+.record{
+ width:200rpx;
+ height:55rpx;
+ line-height:55rpx;
+ background:linear-gradient(147deg,rgba(255,81,103,1) 0%,rgba(254,81,169,1) 100%);
+ border-radius:28rpx;
+ margin: 0 auto 24rpx;
+ font-size:28rpx;
+ font-family:PingFangSC-Medium,PingFang SC;
+ font-weight:500;
+ color:rgba(255,255,255,1);
+ text-align: center;
+}
+.li{
+  width: 100%;
+  height: 418rpx;
+}
+.li1{
+  width: 288rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  height: 366rpx;
+  background: url("/images/index/bag.png");
+  background-size: 100%;
+  overflow: hidden;
+  opacity:0.6;
+}
+.selected{
+  width: 322rpx !important;
+  height: 418rpx !important;
+  background: url("/images/index/bag.png");
+  background-size: 100% 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  opacity:1 !important;
+}
+.selected .logo{
+  width: 59rpx !important;
+  height: 59rpx !important;
+  margin: 44rpx auto 20rpx !important;
+}
+.selected .content{
+  font-size: 40rpx !important;  
+  width: 300rpx !important;
+  margin-top: 7rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+}
+.selected .chai{
+  margin: 125rpx auto 0 !important;
+  text-align:center;
+  font-size:40rpx;
+  color:rgba(195,105,51,1);
+  line-height:56rpx;
+}
+.li1 .logo{
+  width: 52rpx;
+  height: 52rpx;
+  display: block;
+  margin: 44rpx auto 20rpx;
+}
+.li1 .title{
+  margin: 0 auto;
+  text-align:center;
+  font-size:20rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(134,86,38,1);
+}
+.li1 .content{
+  font-size: 35rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(255,229,177,1);
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 6rpx;
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.li1 .chai{
+  margin: 113rpx auto 0;
+  text-align:center;
+  font-size:40rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+   color:rgba(195,105,51,1);
+  line-height:56rpx;
+}
+.lucky-bag-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 562rpx;
+  background-color: #fff;
+  border-radius:20rpx 20rpx 0px 0px;
+  z-index: 1100;
+}
+.lucky-bag-bottom .header{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(98,88,89,1);
+  display: flex;
+  margin: 42rpx 25rpx 36rpx 42rpx;
+}
+.lucky-bag-bottom .close{
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: auto;
+  display: block;
+}
+.bottom-content{
+  width: 666rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.bottom-detail{
+  display: flex;
+  align-items:center;
+  width: 666rpx;
+  height: 120rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(129,129,129,1)
+}
+.line{
+    position: relative;
+}
+.line::after {
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -2rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+.bottom-detail .shop{
+  width: 74rpx;
+  height: 74rpx;
+  display: block;
+  margin-right: 24rpx;
+}
+
+.bottom-detail .button{
+  width: 134rpx;
+  height: 54rpx;
+  display: block;
+  margin-left: auto;
+}
+.bg{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background:rgba(0,0,0,0.6);
+  width: 100%;
+  z-index: 1000;
+}
+.prize-record{
+   height: 884rpx;
+   width: 640rpx;
+   margin: auto;
+   margin-top: 240rpx;
+   border-radius: 10rpx;
+   background: url("/images/index/record-bg.png");
+   background-size: 100%;
+   overflow: hidden;
+}
+.record-content {
+  overflow: auto;
+  height: 712rpx;
+  width: 640rpx;
+}
+.no-data{
+  width: 240rpx;
+  height: 172rpx;
+  display: block;
+  margin: 288rpx auto 0;
+}
+.no-data-content{
+    text-align: center;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(46,49,82,1);
+    margin-top: 26rpx;
+}
+.mt172{
+  margin-top: 172rpx;
+}
+.record-line{
+  display: flex;
+  height: 106rpx;
+  width: 100%;
+  align-items:center;
+  position: relative;
+  
+}
+.record-line::after{
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 32rpx;
+    right: 32rpx;
+    width: 576rpx;
+    bottom: 0rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.record-left{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(46,49,82,1);
+  margin-left: 32rpx;
+  margin-right: 50rpx;
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.record-middle{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(46,49,82,1);
+}
+.record-right{
+  margin-left: auto;
+  margin-right: 32rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(151,160,175,1);
+}
+.record-close{
+  width: 64rpx;
+  height: 64rpx;
+  display: block;
+  margin: 36rpx auto 0;
+}

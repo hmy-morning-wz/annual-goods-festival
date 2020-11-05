@@ -1,0 +1,3 @@
+<view class="lifestyle">
+  <lifestyle a:if="{{publicId}}" publicId="{{publicId}}" onFollow="onFollow"/>
+</view>

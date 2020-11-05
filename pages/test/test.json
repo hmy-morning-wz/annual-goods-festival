@@ -1,0 +1,6 @@
+{
+   "usingComponents": {       
+     "draw-result": "/components/draw-result/draw-result"
+  }
+  
+}

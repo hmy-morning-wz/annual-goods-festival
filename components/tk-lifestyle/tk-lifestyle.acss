@@ -1,0 +1,26 @@
+.lifestyle {
+  position: fixed;
+  bottom: 68rpx;
+  width: 100%;
+  
+}
+
+lifestyle {
+  display:flex;
+font-size:26rpx;
+-webkit-box-align:center;
+align-items:center;
+background-color:rgba(0,0,0,1);
+width:728rpx;
+height:104rpx;
+
+border-radius:4rpx;
+opacity:0.4;
+
+
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+line-height:104rpx;
+margin-left: 11rpx;
+}

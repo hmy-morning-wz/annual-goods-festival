@@ -1,0 +1,10 @@
+{
+  "extEnable": true,
+  "ext": {    
+    "env":"sit",
+    "appId":"2019121169870354",
+    "appName":"年货节",
+	  "publicId":"2018052160219015",
+    "pageJson":[]   
+}
+}

@@ -1,0 +1,61 @@
+<view class="am-modal-{{show ? 'show' : 'hide'}}" disable-scroll="{{true}}">
+	<view class="am-modal-mask" />
+	<view class="am-modal-document {{advice === true ? 'am-modal-document-advice' : '' }}">
+		<view class="am-modal {{className}}"  onAppear="onAppear" data-index="1" data-seed="抽奖结果弹框" data-group="抽奖结果弹框-{{drawSeller.name+'-'+drawSeller.sellerId}}-{{drawSeller.win?'中奖':'未中奖'}}-{{drawSeller.isMemmber?'老会员':'新会员'}}" data-obj="{{drawSeller}}"  >
+			<view a:if="{{topImage}}" class="am-modal-image am-modal-image-{{topImageSize}}">
+				<image src="{{topImage}}" />
+			</view>
+		  <image class="top-bg" mode="scaleToFill" a:if="{{drawResultCfg.image ||bgImage}}"        
+          src="{{drawResultCfg.image ||bgImage}}" />
+			<view class="title">	<text>{{drawSeller.name}}</text>  </view>
+			<view class="am-modal-body">
+  
+			<image mode="scaleToFill" class="logo" a:if="{{drawSeller.logo}}"        
+          src="{{drawSeller.logo}}" /> 
+					  
+       	<view class="msg-box" onAppear="onAppear"  data-index="2" data-seed="奖品-{{drawSeller.result1||'NONE'}}+{{drawSeller.result2||'NONE'}}" data-group="抽奖结果弹框-{{drawSeller.name+'-'+drawSeller.sellerId}}-{{drawSeller.win?'中奖':'未中奖'}}-{{drawSeller.isMemmber?'老会员':'新会员'}}" data-obj="{{drawSeller}}" >
+				 <block a:if="{{!drawSeller.win}}">
+				 	<view class="msg1">抱歉，已经发完</view>   
+				  </block>
+				 <block a:elif="{{drawSeller.isMemmber}}">
+				 	<view class="msg1">{{drawSeller.isMemmberText}}</view>   
+					 		<view class="msg3">{{drawSeller.result1}}</view>  
+				  </block>
+					<block a:else>
+				 	<view class="msg">
+					 <text class="text1">恭喜获得 </text>
+					 <block a:if="{{drawSeller.result2}}">
+					 <text class="text2">{{drawSeller.result2}}</text>
+					 <text class="text1">+ </text>
+					 </block>	
+					 <text class="text2"  a:if="{{drawSeller.result1}}">{{drawSeller.result1}}</text>
+					 </view>  
+				  </block>			
+				
+			
+			</view>
+  		<view  class="am-modal-more"  a:if="{{drawSeller.win && !drawSeller.isMemmber}}">
+				<image mode="scaleToFill" class="banner" a:if="{{drawSeller.banner}}"        
+          src="{{drawSeller.banner}}"  data-index="2" data-seed="点击广告" data-group="抽奖结果弹框-{{drawSeller.name+'-'+drawSeller.sellerId}}-{{drawSeller.win?'中奖':'未中奖'}}-{{drawSeller.isMemmber?'老会员':'新会员'}}" data-obj="{{drawSeller}}" onTap="onBannerClick" /> 					  
+					<view class="msg">{{drawResultCfg.kefu ||kefu}}</view>
+			</view>
+			</view>
+			<view class="am-modal-kf">（同支付宝账号、手机号、身份证、设备皆视为同一账号）</view>				
+			<view  class="am-modal-footer" hover-class="am-modal-footer-active"  data-index="4" data-seed="点击按钮" data-group="抽奖结果弹框-{{drawSeller.name+'-'+drawSeller.sellerId}}-{{drawSeller.win?'中奖':'未中奖'}}-{{drawSeller.isMemmber?'老会员':'新会员'}}" data-obj="{{drawSeller}}"  onTap="onModalClick">
+			
+				
+								 <block a:if="{{!drawSeller.win}}">
+				 	<text>{{drawResultCfg.buttonText1 ||buttonText1}}</text>
+				  </block>
+				 <block a:elif="{{drawSeller.isMemmber}}">
+				 		<text>{{drawResultCfg.buttonText1 || buttonText1}}</text>
+				  </block>
+					<block a:else>
+				 	<text>{{drawResultCfg.buttonText2 ||  buttonText2}}</text>
+				  </block>	
+			</view>
+		
+			<view class="am-modal-close {{closeType === '1' ? 'am-close-white' : ''}}" hover-class="am-modal-close-active" a:if="{{showClose}}"   data-index="5" data-seed="点击关闭" data-group="抽奖结果弹框-{{drawSeller.name+'-'+drawSeller.sellerId}}-{{drawSeller.win?'中奖':'未中奖'}}-{{drawSeller.isMemmber?'老会员':'新会员'}}" data-obj="{{drawSeller}}" onTap="onModalClose" />
+		</view>
+	</view>
+</view>
